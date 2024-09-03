@@ -1,0 +1,41 @@
+name: Multi-Runner Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build
+        run: |
+          echo "Building on Ubuntu..."
+          # Build commands here
+      - name: Deploy to staging
+        run: |
+          echo "Deploying to staging on Ubuntu..."
+          # Deploy commands here
+
+  test-on-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Test
+        run: |
+          echo "Testing on Windows..."
+          # Test commands here
+
+  test-on-macos:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Test
+        run: |
+          echo "Testing on macOS..."
+          # Test commands here
